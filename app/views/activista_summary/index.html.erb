@@ -1,0 +1,22 @@
+<h1>Activistas Summary</h1>
+
+<p id ="date">Date: <input type="text" id="datepicker"/></p>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>#</th>
+    <th>FIRST</th>
+    <th>LAST</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @activistas.each do |key, value| %>
+  <tr>
+    <td><%= key %></td>
+    <td><%= value[0] %></td>
+    <td><%= value[1] %></td>
+    <td><%= value[2] %></td>
+  </tr>
+<% end %>
+</table>

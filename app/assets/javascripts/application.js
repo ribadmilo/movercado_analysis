@@ -10,7 +10,17 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
+//=require jquery
 //= require jquery_ujs
 //= require jquery_nested_form
 //= require_tree .
+//= require jquery-ui
+
+$(function() {
+	//$("#date").css('display','inline-block');
+	$("#date").css('float','right');
+	$("#datepicker").css('background-color','#CCC');
+	$("#datepicker").css('display','inline-block');
+    $("#datepicker").datepicker();
+   
+  });
