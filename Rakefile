@@ -9,7 +9,7 @@ MovercadoAnalysis::Application.load_tasks
 
 namespace :trokaAki  do
 
-	task :create1000  => :environment do
+	task :overload  => :environment do
 		t = TrocaAkiValidation.where(name: "Troca Aki Campaign", code: "TTT").first_or_create
 		#Create a vendor user
 		u = User.create!
