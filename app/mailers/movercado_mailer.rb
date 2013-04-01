@@ -3,6 +3,6 @@ class MovercadoMailer < ActionMailer::Base
 
   def alert_email(user_email,content)
   	@suspicious_content = content
-  	mail(:to => user_email, subject => "Alert from movercado")
+  	mail(:to => user_email, :subject => "Alert from movercado")
   end
 end
