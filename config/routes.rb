@@ -9,7 +9,7 @@ MovercadoAnalysis::Application.routes.draw do
   resources :ipc_validations, :controller => "apps", :type => "IpcValidation"
 
   resources :users
-  resources :activista_summary
+  resources :activista_summary 
 
   root to: "smses#index"
 
