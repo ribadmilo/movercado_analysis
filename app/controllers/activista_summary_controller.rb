@@ -18,6 +18,8 @@ class ActivistaSummaryController < ApplicationController
 			 @activistas[k] = [total, first, last]
 		}
 
+		@activistas = Hash[@activistas.sort] #puts result sorted by user_id
+
 		if request.xhr?
 			respond_to do |format|
 		      format.json { render :json => { :current_week =>@current_week, :activistas => @activistas}}

@@ -33,6 +33,7 @@ $(function() {
 
 	$('#form_nweek').submit(function(event){
 		event.preventDefault();
+		event.stopPropagation();
 		var form_data = $(this);
 		$.ajax({
 			url: form_data.attr('action'),
@@ -44,14 +45,12 @@ $(function() {
 			},
 			success: function(data, textStatus, xhr){
 				$('#sweek').html("Selected week is " + data.current_week);
-				console.log(data.activistas);
 				$('#tten').empty();
-				$('#tten').append('<th>ID</th><th>#</th><th>FIRST</th><th>LAST</th>');
+				$('#tten').append('<tbody><th>ID</th><th>#</th><th>FIRST</th><th>LAST</th></tbody>');
 				$.each( data.activistas, function( key, value ) {
   					$('#tten').append('<tr><td>'+key+'</td><td> '+value[0]+'</td><td>'+value[1]+'</td><td>'+value[2]+'</td></tr>'); 
 				});
-				$('#tten th').css('width','50px');
-    			$('#tten tbody td').css('text-align','center');
+    			top10_css();
 			},
 			error: function(xhr, ajaxOptions, thrownError){
 			},
@@ -60,11 +59,19 @@ $(function() {
 	});
 });
 
+function top10_css(){
+	jQuery('#tten th').css('width','50px');
+	jQuery('#tten th').css('border','2px solid black');
+    jQuery('#tten td').css('text-align','center');
+    jQuery('#tten td').css('width','150px');
+    jQuery('#tten td').css('border','1px solid black');
+
+}
+
 $(document).ready(function(){
     jQuery('#cweek span').css('color','red');
     jQuery('#oweek').css('display', 'inline-block');
-	jQuery('#tten th').css('width','50px');
-    jQuery('#tten td').css('text-align','center');
+	top10_css();
 
   	jQuery('#submit_form').mouseenter(function(){
   		jQuery(this).css('color', 'red');
